@@ -68,7 +68,7 @@ function ConvertHandler() {
   };
   
   this.convert = function(initNum, initUnit) {
-    return parseFloat(UNITS[initUnit][2](initNum).toFixed(5));
+    return parseFloat(UNITS[initUnit.toLowerCase()][2](initNum).toFixed(5));
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
