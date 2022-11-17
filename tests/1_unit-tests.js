@@ -48,7 +48,7 @@ suite('Unit Tests', function() {
             assert.throws(() => convertHandler.getUnit("1.2/3Slbs"), /invalid unit/);
             assert.throws(() => convertHandler.getUnit("1.2/3kggkKgkg"), /invalid unit/);
         });
-        test("#convert/returnUnit", function() {
+        test("#returnUnit", function() {
             assert.strictEqual(convertHandler.getReturnUnit("gal"), "L");
             assert.strictEqual(convertHandler.getReturnUnit("L"), "gal");
             assert.strictEqual(convertHandler.getReturnUnit("mi"), "km");
@@ -63,6 +63,24 @@ suite('Unit Tests', function() {
             assert.strictEqual(convertHandler.spellOutUnit("km"), "kilometers");
             assert.strictEqual(convertHandler.spellOutUnit("lbs"), "pounds");
             assert.strictEqual(convertHandler.spellOutUnit("kg"), "kilograms");
+        });
+        test("#convert/galToL", function() {
+            assert.strictEqual(convertHandler.convert(4, "gal"), 15.14164);
+        });
+        test("#convert/LToGal", function() {
+            assert.strictEqual(convertHandler.convert(15.14164, "L"), 4);
+        });
+        test("#convert/miToKm", function() {
+            assert.strictEqual(convertHandler.convert(3.1, "mi"), 4.98895);
+        });
+        test("#convert/kmToMi", function() {
+            assert.strictEqual(convertHandler.convert(4.98895, "km"), 3.1);
+        });
+        test("#convert/lbsToKg", function() {
+            assert.strictEqual(convertHandler.convert(2.5, "lbs"), 1.13398);
+        });
+        test("#convert/kgToLbs", function() {
+            assert.strictEqual(convertHandler.convert(1.13398, "kg"), 2.5);
         });
     });
 });
