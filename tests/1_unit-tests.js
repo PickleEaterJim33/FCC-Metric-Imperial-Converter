@@ -1,4 +1,3 @@
-const { expect } = require('chai');
 const chai = require('chai');
 let assert = chai.assert;
 const ConvertHandler = require('../controllers/convertHandler.js');
